@@ -34,8 +34,8 @@ const GrammerlyNew = () => {
     const textarea = textAreaRef.current;
     textarea.focus();
     const rect = selection.getRangeAt(0).getBoundingClientRect();
-    // console.log('rect', rect)
-    sePositions1(`${rect.bottom}px`);
+    console.log('rect', rect)
+    sePositions1(`${rect.bottom + 85}px`);
     setPositioin2(`${rect.left}px`);
     // setSuggestions(["Iphone", "Android"]); // Replace with your actual suggestion logic
 
@@ -245,7 +245,7 @@ const GrammerlyNew = () => {
                   top: positions1,
                 }}
                 id="suggestion-dropdown"
-                className="dropdown"
+                className="dropdown bg-orange-400"
               >
                 <div className="flex flex-wrap gap-2 m-2">
                   <button onClick={() => searchRewrite("rewrite", "rephrase")}
@@ -296,12 +296,12 @@ const GrammerlyNew = () => {
                 </div>
                 {/* Display suggestions here */}
                 {loading==true ? (
-                  <div className="suggestion">Loading ....</div>
+                  <div className="suggestion bg-gray-50">Loading ....</div>
                 ) : (
                   content?.map((suggestion, index) => (
                     <div
                       key={index}
-                      className="suggestion"
+                      className="suggestion bg-gray-50"
                       onClick={(e) => handleSuggestionClick(e, suggestion.text)}
                     >
                       {suggestion.text}

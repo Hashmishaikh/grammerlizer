@@ -42,32 +42,30 @@ const Profile = () => {
     getSubDetails();
   }, []);
   return (
-    <div className="container-fluide">
-      <Flex height="100dvh" direction="column" gap="2">
+    <div className="container mx-auto px-4 flex justify-center items-center h-screen">
+      <Flex className="flex-col gap-4" height="100dvh">
         {profileLoading ? (
-          <Skeleton width="350px" height="200px" className="mt-4" />
+          <Skeleton className="w-400px h-200px mt-4" />
         ) : (
-          <Box className="mt-4" width="350px">
-            <Card size="2">
-              <Flex gap="3" align="center">
+          <Box className="mt-4 w-full">
+            <div className="shadow-lg rounded-lg p-4 bg-white w-96">
+              <Flex className="flex-row gap-3 items-center">
                 <Box>
-                  <Text as="div" size="2" weight="bold">
+                  <Text className="text-lg font-bold">
                     PROFILE DETAILS
                   </Text>
-                  {/* <Text as="div" size="2" color="gray">
-                    PROFILE
-                  </Text> */}
                 </Box>
               </Flex>
-              <hr />
-              <Flex direction="column">
+              <hr className="my-4" />
+              <Flex className="flex-col">
                 <Box>
                   <Text>FullName</Text>:
                   {editName ? (
                     <input
-                      type="text"
+                      className="form-input block w-full mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-gray-300 rounded-md"
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
+                      autoFocus
                     />
                   ) : (
                     <Text>{profile?.fullName}</Text>
@@ -85,33 +83,30 @@ const Profile = () => {
                     loading ? (
                       <Spinner animation="border" />
                     ) : (
-                      <Button onClick={update}>Update</Button>
+                      <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={update}>Update</Button>
                     )
                   ) : (
-                    <Button onClick={editname}>Edit Name</Button>
+                    <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={editname}>Edit Name</Button>
                   )}
                 </Box>
               </Flex>
-            </Card>
+            </div>
           </Box>
         )}
         {subLoading === true ? (
-          <Skeleton width="350px" height="200px" />
+          <Skeleton className="w-400px h-200px" />
         ) : Object.keys(subDetails).length == 0 ? null : (
-          <Box width="350px">
-            <Card size="2">
-              <Flex gap="3" align="center">
+          <Box className="w-400px">
+            <div className="shadow-lg rounded-lg p-4 bg-white">
+              <Flex className="flex-row gap-3 items-center">
                 <Box>
-                  <Text as="div" size="2" weight="bold">
+                  <Text className="text-lg font-bold">
                     Subscription Details
                   </Text>
-                  {/* <Text as="div" size="2" color="gray">
-                  Subscription Details
-                </Text> */}
                 </Box>
               </Flex>
-              <hr />
-              <Flex direction="column">
+              <hr className="my-4" />
+              <Flex className="flex-col">
                 <Box>
                   <Text>Subscription Plan</Text>:
                   <Text>{subDetails?.subscriptionPlan}</Text>
@@ -135,59 +130,59 @@ const Profile = () => {
                   <Text>{subDetails?.paymentId}</Text>
                 </Box>
               </Flex>
-            </Card>
+            </div>
           </Box>
         )}
-        <Box width="350px">
-          <Card size="2">
-            <Flex gap="3" align="center">
+        <Box className="w-400px">
+          <div className="shadow-lg rounded-lg p-4 bg-white">
+            <Flex className="flex-row gap-3 items-center">
               <Box>
-                <Text as="div" size="2" weight="bold">
+                <Text className="text-lg font-bold">
                   Change Password
                 </Text>
-                {/* <Text as="div" size="2" color="gray">
-                  Subscription Details
-                </Text> */}
               </Box>
             </Flex>
-            <hr />
-            <Flex direction="column">
+            <hr className="my-4" />
+            <Flex className="flex-col">
               <Box>
-                <Flex direction="column">
+                <Flex className="flex-col">
                   <Text>Previous Password:</Text>
                   <input
-                    className="user_log_reg_fields w-input"
+                                         className="form-input block w-full mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-gray-300 rounded-md"
+
                     value={previous}
                     onChange={(e) => setPrevious(e.target.value)}
                   />
                 </Flex>
               </Box>
               <Box>
-                <Flex direction="column">
+                <Flex className="flex-col">
                   <Text>New Password:</Text>
                   <input
-                    className="user_log_reg_fields w-input"
+                                         className="form-input block w-full mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-gray-300 rounded-md"
+
                     value={pass}
                     onChange={(e) => setPass(e.target.value)}
                   />
                 </Flex>
               </Box>
               <Box>
-                <Flex direction="column">
+                <Flex className="flex-col">
                   <Text>Confirm Password</Text>
 
                   <input
-                    className="user_log_reg_fields w-input"
+                                         className="form-input block w-full mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border border-gray-300 rounded-md"
+
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                   />
                 </Flex>
               </Box>
               <Box>
-                <Button onClick={changePassword}>Update Password</Button>
+                <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={changePassword}>Update Password</Button>
               </Box>
             </Flex>
-          </Card>
+          </div>
         </Box>
       </Flex>
     </div>

@@ -22,27 +22,29 @@ const DropDown = () => {
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content className="DropdownMenuContent mr-7" sideOffset={5}>
-          <DropdownMenu.Item className="DropdownMenuItem">
+        <Link to="/profile">
+          <DropdownMenu.Item className="DropdownMenuItem text-xl">
             Profile{" "}
             <div className="RightSlot">
-              <PersonIcon />
+              <PersonIcon width={20} height={20}/>
             </div>
           </DropdownMenu.Item>
-          <Link to="/pricing">
+          </Link>
+          {/* <Link to="/pricing">
             <DropdownMenu.Item className="DropdownMenuItem">
               Pricing{" "}
               <div className="RightSlot">
                 <FrameIcon />
               </div>
             </DropdownMenu.Item>
-          </Link>
+          </Link> */}
 
-          <DropdownMenu.Separator className="DropdownMenuSeparator" />
+          {/* <DropdownMenu.Separator className="DropdownMenuSeparator" /> */}
 
-          <DropdownMenu.Item onClick={logout} className="DropdownMenuItem">
+          <DropdownMenu.Item onClick={logout} className="DropdownMenuItem text-xl">
             Logout{" "}
             <div className="RightSlot">
-              <ExitIcon />
+              <ExitIcon width={20} height={20}/>
             </div>
           </DropdownMenu.Item>
           <DropdownMenu.Arrow className="DropdownMenuArrow" />

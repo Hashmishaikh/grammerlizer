@@ -45,6 +45,7 @@ const Grammerly = () => {
     const textarea = textAreaRef.current;
     textarea.focus();
     const rect = selection.getRangeAt(0).getBoundingClientRect();
+    console.log('rect', rect)
 
     sePositions1(`${rect.bottom}px`);
     setPositioin2(`${rect.left}px`);

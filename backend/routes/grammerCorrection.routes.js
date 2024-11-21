@@ -13,20 +13,20 @@ import {
   updateGrammerData,
 } from "../controller/grammerCorrection.js";
 import protectRoute from "../middleware/protectRoute.js";
-import verifySubscription from "../middleware/verifySubscription.js";
+// import verifySubscription from "../middleware/verifySubscription.js";
 
 const router = express.Router();
 
-router.post("/rephrase", protectRoute, verifySubscription, rephrase);
-router.post("/normal", protectRoute,verifySubscription, normal);
-router.post("/professional", protectRoute,verifySubscription, professional);
-router.post("/narrow", protectRoute, verifySubscription, narrow);
-router.post("/broader", protectRoute,verifySubscription, broader);
-router.post("/synony", protectRoute,verifySubscription, synony);
-router.post("/grammer", protectRoute, verifySubscription, postGrammerData);
-router.get("/grammer", protectRoute, verifySubscription, getGrammerData);
-router.get("/grammer/:grammerId", protectRoute,verifySubscription, getGrammerDataById);
-router.delete("/delete-grammer/:grammerId", protectRoute,verifySubscription, deleteGrammerData);
-router.put("/update-grammer/:grammerId", protectRoute,verifySubscription, updateGrammerData);
+router.post("/rephrase", protectRoute, rephrase);
+router.post("/normal", protectRoute, normal);
+router.post("/professional", protectRoute, professional);
+router.post("/narrow", protectRoute, narrow);
+router.post("/broader", protectRoute, broader);
+router.post("/synony", protectRoute, synony);
+router.post("/grammer", protectRoute, postGrammerData);
+router.get("/grammer", protectRoute, getGrammerData);
+router.get("/grammer/:grammerId", protectRoute, getGrammerDataById);
+router.delete("/delete-grammer/:grammerId", protectRoute, deleteGrammerData);
+router.put("/update-grammer/:grammerId", protectRoute, updateGrammerData);
 
 export default router;
